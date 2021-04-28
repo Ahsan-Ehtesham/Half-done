@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <title>Dynamic Chart</title>
+</head>
+
+<body>
+  <!-- TradingView Widget BEGIN -->
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com" rel="noopener" target="_blank"><span
+          class="blue-text">Ticker Tape</span></a> by TradingView</div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+      async>
+        {
+          "symbols": [
+            {
+              "proName": "FOREXCOM:SPXUSD",
+              "title": "S&P 500"
+            },
+            {
+              "proName": "FOREXCOM:NSXUSD",
+              "title": "Nasdaq 100"
+            },
+            {
+              "proName": "FX_IDC:EURUSD",
+              "title": "EUR/USD"
+            },
+            {
+              "proName": "BITSTAMP:BTCUSD",
+              "title": "BTC/USD"
+            },
+            {
+              "proName": "BITSTAMP:ETHUSD",
+              "title": "ETH/USD"
+            }
+          ],
+            "showSymbolLogo": true,
+              "colorTheme": "light",
+                "isTransparent": false,
+                  "displayMode": "adaptive",
+                    "locale": "en"
+        }
+      </script>
+  </div>
+  <!-- TradingView Widget END -->
+  <h1 style="text-align: center;color: grey;">Binance BTC/USDT Data Visualization</h1>
+  <div id="tvchart" style="margin-bottom: 50px;margin-left: 45px;"></div>
+  <container class="container">
+    <cards class="cards">
+      <bitcoin style="width: 30%" class="btc">
+        <card class="asset-info">
+          <div class="title">
+            <img src="https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/btc.svg" width="15%">
+            <h1>Bitcoin</h1>
+          </div>
+          <div class="details">
+            <h2 class="asset-price" id="btcPrice"></h2>
+          </div>
+        </card>
+        <canvas id="btcChart"></canvas>
+      </bitcoin>
+
+      <cosmos style="width: 30%" class="cosmos">
+        <card class="asset-info">
+          <div class="title">
+            <img src="https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/atm.svg" width="15%">
+            <h1>Cosmos</h1>
+          </div>
+          <div class="details">
+            <h2 class="asset-price" id="atomPrice"></h2>
+          </div>
+        </card>
+        <canvas id="cosmosChart"></canvas>
+      </cosmos>
+
+      <ethereum style="width: 30%" class="ethereum">
+        <card class="asset-info">
+          <div class="title">
+            <img src="https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/eth.svg" width="10%">
+            <h1>Ethereum</h1>
+          </div>
+          <div class="details">
+            <h2 class="asset-price" id="ethPrice"></h2>
+          </div>
+        </card>
+        <canvas id="ethereumChart"></canvas>
+      </ethereum>
+    </cards>
+  </container>
+  <!-- TradingView Widget BEGIN -->
+  <div class="tradingview-widget-container" style="display:flex;justify-content:center;margin:0 auto;">
+    <div class="tradingview-widget-container__widget"></div>
+    <!-- <div class="tradingview-widget-copyright"><a
+            href="https://uk.tradingview.com/symbols/NASDAQ-AAPL/technicals/" rel="noopener"
+            target="_blank"><span class="blue-text">Technical Analysis for AAPL</span></a> by TradingView</div> -->
+    <script type="text/javascript"
+      src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+        {
+          "interval": "1m",
+            "width": 650,
+              "isTransparent": true,
+                "height": 450,
+                  "symbol": "NASDAQ:AAPL",
+                    "showIntervalTabs": true,
+                      "locale": "uk",
+                        "colorTheme": "light"
+        }
+      </script>
+  </div>
+  <!-- TradingView Widget END -->
+</body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.4.0/socket.io.js"></script>
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+<script type="text/javascript" src="index.js"></script>
+<script src="./script.js"></script>
+
+
+</html>
